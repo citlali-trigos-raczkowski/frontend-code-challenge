@@ -56,3 +56,4 @@ To read about the [day-to-day work, go here](/docs/dayToDay.md). And to visit th
 - demo video
 - ability to create a new pokemon
 - treeshaking
+- fp-ts for option

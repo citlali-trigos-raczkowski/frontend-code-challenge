@@ -1,4 +1,4 @@
-# practice-vue-typescript-graphql
+# test-test-frontend
 
 ## Project setup
 ```

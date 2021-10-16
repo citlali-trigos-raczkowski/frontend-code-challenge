@@ -1,18 +1,21 @@
-import { ApolloClients } from "@vue/apollo-composable";
-import { createApp, provide, h } from "vue";
+import Vue from "vue";
+import Vuetify from "vuetify";
+import VueApollo from "vue-apollo";
+import vuetify from "./plugins/vuetify";
 import App from "./App.vue";
-import { apolloClient } from "./graphql/apolloClient";
 import router from "./router";
 import store from "./store";
+// import { apolloProvider } from "./graphql/apolloClient";
 
-createApp({
-  setup() {
-    provide(ApolloClients, {
-      default: apolloClient,
-    });
-  },
-  render: () => h(App),
-})
-  .use(store)
-  .use(router)
-  .mount("#app");
+import "vuetify/dist/vuetify.min.css";
+
+Vue.config.productionTip = false;
+Vue.use(Vuetify);
+Vue.use(VueApollo);
+
+new Vue({
+  router,
+  store,
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");
