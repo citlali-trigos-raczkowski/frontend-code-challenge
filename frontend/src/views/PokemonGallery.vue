@@ -1,8 +1,21 @@
 <template>
   <div class="home">
-    hello gallery
+    hello gallery<br />
 
-    <SearchBar @search="search" />
+    <!-- 
+
+    <input
+      type="text"
+      placeholder="Search"
+      v-model="txtSearch"
+      v-on:keyup="() => getPokemonList('', 'all', true)"
+    />
+    <select v-on:change="getPokemonList" v-model="typeSelected">
+      <option disabled selected value="null">Type</option>
+      <option value="all">All</option>
+      <option v-for="type of pokemonTypes" v-bind:key="type">{{ type }}</option>
+    </select> -->
+
     <div id="gallery">
       <pokemon-tile
         v-for="pokemon in pokemons"
@@ -26,16 +39,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
 import PokemonTile from "@/components/PokemonTile.vue";
-import SearchBar from "@/components/SearchBar.vue";
+// import SearchBar from "@/components/SearchBar.vue";
+import { GetGalleryPokemons } from "@/api/GetGalleryPokemons";
+// import gql from "graphql-tag";
+import Vue from "vue";
 
-export default defineComponent({
+const response = GetGalleryPokemons({
+  searchString: "",
+  isFavoriteSearch: false,
+  selectedFilter: "all",
+});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+response.then((result: any) => {
+  console.log("citlali", result);
+});
+
+export default Vue.extend({
   name: "PokemonGallery",
-  components: { PokemonTile, SearchBar },
+  components: { PokemonTile },
   data() {
     return {
-      pokemons: [],
+      pokemons: response,
     };
   },
 });

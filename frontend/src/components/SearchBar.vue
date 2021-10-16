@@ -1,5 +1,4 @@
 <template>
-  <div>search bar here</div>
   <form class="hidden md:block max-w-6xl mx-auto mb-16">
     <div
       class="
@@ -58,9 +57,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import Vue from "vue";
 
-export default defineComponent({
+export default Vue.extend({
   name: "SearchBar",
   props: ["search"],
 });
