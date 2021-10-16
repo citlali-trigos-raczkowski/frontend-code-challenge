@@ -1,9 +1,12 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import Vue from "vue";
+import VueRouter, { RouteConfig } from "vue-router";
 import PokemonGallery from "@/views/PokemonGallery.vue";
 import PokemonDetail from "@/views/PokemonDetail.vue";
 import NotFound from "@/views/NotFound.vue";
 
-const routes: Array<RouteRecordRaw> = [
+Vue.use(VueRouter);
+
+const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "pokemon-gallery",
@@ -21,8 +24,9 @@ const routes: Array<RouteRecordRaw> = [
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes,
 });
 
