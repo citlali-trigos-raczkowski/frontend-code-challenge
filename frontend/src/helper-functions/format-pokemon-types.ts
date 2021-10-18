@@ -8,7 +8,7 @@ const directions = {
 };
 const nothingOption = { text: "No Filter", value: "all" };
 
-export const baseOptions = [directions, nothingOption]
+export const baseOptions = [directions, nothingOption];
 
 export const createPokemonTypeList = (
   pokemonTypeVals: PokemonType[]

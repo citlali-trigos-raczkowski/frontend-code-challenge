@@ -3,17 +3,14 @@ import axios from "axios";
 import { GqlUrl } from "./api-configuration";
 import {
   UpdateFavoriteStatusQueryInput,
-  FavTogglePokemonResponse,
-  ResponseStatusType,
   ToggleFavoritePokemonInput,
   ApiResponse,
 } from "@/types/api-types";
 
-
 const UpdatePokemonStatus = async ({
   pokemonId,
   queryString,
-}: UpdateFavoriteStatusQueryInput): Promise<FavTogglePokemonResponse | void> => {
+}: UpdateFavoriteStatusQueryInput): Promise<ApiResponse | void> => {
   try {
     const res = await axios({
       url: GqlUrl,
@@ -39,7 +36,7 @@ const UpdatePokemonStatus = async ({
         errorMessage: `${(res.data as ApiResponse).error}`,
       });
     }
-    return (res.data as ApiResponse).data as FavTogglePokemonResponse;
+    return (res.data as ApiResponse).data as ApiResponse;
   } catch (err) {
     if (err) {
       logGenericError({
@@ -61,14 +58,14 @@ const getQueryString = (favorited: boolean) => {
 
 export const FavoritePokemon = async ({
   pokemonId,
-}: ToggleFavoritePokemonInput): Promise<FavTogglePokemonResponse | void> => {
+}: ToggleFavoritePokemonInput): Promise<ApiResponse | void> => {
   const queryString = getQueryString(true);
   return UpdatePokemonStatus({ queryString, pokemonId });
 };
 
 export const UnFavoritePokemon = async ({
   pokemonId,
-}: ToggleFavoritePokemonInput): Promise<FavTogglePokemonResponse | void> => {
+}: ToggleFavoritePokemonInput): Promise<ApiResponse | void> => {
   const queryString = getQueryString(false);
   return UpdatePokemonStatus({ queryString, pokemonId });
 };

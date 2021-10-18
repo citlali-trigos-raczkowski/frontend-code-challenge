@@ -19,16 +19,9 @@ export type UpdateFavoriteStatusInput = {
 
 export type ToggleFavoritePokemonInput = {
   pokemonId: string;
-  favorited: boolean;
 };
 
-export type ApiResponse = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any;
-  error?: any
-};
-
-export type FavTogglePokemonResponse = FavoritePokemonResponse | UnfavoritePokemonResponse;
+export type ApiResponse = any;
 
 export type FavoritePokemonResponse = {
   favoritePokemon: PokemonIdType;

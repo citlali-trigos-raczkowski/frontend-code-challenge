@@ -31,31 +31,16 @@
       <v-tab @click="viewFavorites">Favorites</v-tab>
     </v-tabs>
 
-    <v-container v-if="galleryView" id="gallery-tiles" class="lighten-5">
-      <pokemon-tile
-        v-for="pokemon in pokemons"
-        :key="pokemon.id"
-        :pokemon="pokemon"
-        :triggerReload="triggerReload"
-        :galleryView="galleryView"
-        id="pokemon-tile"
-      />
-    </v-container>
-    <v-container v-else id="gallery-list" class="lighten-5">
-      <pokemon-list
-        v-for="pokemon in pokemons"
-        :key="pokemon.id"
-        :pokemon="pokemon"
-        :triggerReload="triggerReload"
-        id="pokemon-list"
-      />
-    </v-container>
+    <pokemon-display
+      :pokemons="pokemons"
+      :triggerReload="triggerReload"
+      :galleryView="galleryView"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import PokemonTile from "../components/pokemon-tile.vue";
-import PokemonList from "../components/pokemon-list.vue";
+import PokemonDisplay from "../components/pokemon-display.vue";
 
 import SearchBar from "../components/search-bar.vue";
 import GetGalleryPokemons from "../api/get-gallery-pokemons";
@@ -73,8 +58,9 @@ export default Vue.extend({
   name: "PokemonGallery",
   components: {
     "search-bar": SearchBar,
-    "pokemon-tile": PokemonTile,
-    "pokemon-list": PokemonList,
+    "pokemon-display": PokemonDisplay,
+    // "pokemon-tile": PokemonTile,
+    // "pokemon-list": PokemonList,
   },
   methods: {
     fetchGalleryPokemons: function () {
@@ -85,9 +71,11 @@ export default Vue.extend({
       });
       response.then((result: GalleryPokemon[] | void) => {
         if (result) {
-          console.log("number of pokeys fetched: ", result.length);
-          this.pokemons = Object.assign({}, {}, result);
-          console.log(Object.keys(this.pokemons).length);
+          this.pokemons = Object.assign({}, {}, result) as any;
+          console.log(
+            "updated to # pokeys fetched: ",
+            Object.keys(this.pokemons).length
+          );
         }
       });
     },
