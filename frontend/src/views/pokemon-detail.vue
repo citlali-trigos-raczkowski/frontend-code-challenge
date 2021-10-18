@@ -1,5 +1,5 @@
 <template>
-  <div id="not-found">
+  <div id="body">
     <router-link to="/">Return home</router-link>
     <div v-if="loading">Loading!</div>
     <div v-else-if="pokemon">
@@ -42,55 +42,63 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { RemoveSlashes } from "@/helperFunctions/formatting";
-import GetPokemonDetail from "@/api/GetPokemonDetail";
-import EvolutionTile from "@/components/EvolutionTile.vue";
-
-import { DetailedPokemonType } from "@/api/types";
+import { RemoveSlashes } from "../helper-functions/format-strings";
+import GetPokemonDetail from "../api/get-pokemon-details";
+import EvolutionTile from "../components/evolution-tile.vue";
+import { logGenericError } from "../helper-functions/logging";
+import { getPathname, reRouteto } from "../helper-functions/routes";
+import { DetailedPokemonType } from "../types/pokemon-types";
 
 export default Vue.extend({
   name: "PokemonDetail",
   components: { "pokemon-evolution-tile": EvolutionTile },
   watch: {
-    windowLocation: function () {
-      console.log("changed to!!!1 ");
-      this.loadPokemon();
-      this.$forceUpdate();
+    $route(to, from) {
+      if (to !== from) {
+        const windowLocation = RemoveSlashes(getPathname());
+        this.loadPokemon(windowLocation);
+      }
     },
   },
   methods: {
-    loadPokemon: function () {
-      if (this.windowLocation) {
+    loadPokemon: function (pathname: string) {
+      if (pathname) {
         GetPokemonDetail({
-          pokemonName: this.windowLocation,
+          pokemonName: pathname,
         }).then((response) => {
-          console.log("citlali", response);
           if (response) {
+            Object.assign({}, this.pokemon, { a: 1, b: 2 });
             this.pokemon = response as DetailedPokemonType;
-            console.log("pokemon ahs been set: ", this.pokemon)
             this.loading = false;
             return;
           }
-          window.location.pathname = `${window.location.pathname}/not-found`;
+          const pathName = getPathname();
+          if (!pathName.includes("not-found")) {
+            reRouteto(`${pathName}/not-found`);
+          }
         });
 
         this.loading = false;
         return;
       }
-      console.log(
-        "Error found while collecting window location\nReturning home"
-      );
-      window.location.pathname = `/`;
+      logGenericError({
+        functionName: "loadPokemon",
+        errorMessage:
+          "Error found while collecting window location\nReturning home",
+      });
+      reRouteto("/");
+    },
+    pokemonNotEmpty: function (): boolean {
+      return Object.keys(this.pokemon).length === 0;
     },
   },
   beforeMount() {
-    this.loadPokemon();
+    this.loadPokemon(this.windowLocation);
   },
   data: function () {
-    
     return {
       loading: true,
-      windowLocation: RemoveSlashes(window.location.pathname),
+      windowLocation: RemoveSlashes(getPathname()),
       pokemon: {},
     };
   },

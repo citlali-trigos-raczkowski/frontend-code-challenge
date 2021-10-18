@@ -1,5 +1,5 @@
 <template>
-  <div class="notFound">Oh no! Page was not found</div>
+  <div id="body">Oh no! Page was not found</div>
 </template>
 
 <script lang="ts">

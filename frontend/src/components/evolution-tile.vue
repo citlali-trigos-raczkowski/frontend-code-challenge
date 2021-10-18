@@ -1,7 +1,5 @@
 <template>
-  <router-link id="EvolutionTile" v-bind:to="pokemon.name"
-    >visit squirtle
-
+  <router-link id="EvolutionTile" v-bind:to="pokemon.name">
     <v-app id="inspire">
       <v-card max-width="200">
         <v-img v-bind:src="pokemon.image" height="auto"></v-img>
@@ -15,14 +13,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropType } from "vue";
+import { PokemonEvolutionDataType } from "../types/pokemon-types";
 
 export default Vue.extend({
   name: "EvolutionTile",
   props: {
     pokemon: {
-      type: Object,
-      default: () => ({}),
+      type: Object as PropType<PokemonEvolutionDataType>,
     },
   },
 });
