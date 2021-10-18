@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import PokemonGallery from "@/views/PokemonGallery.vue";
-import PokemonDetail from "@/views/PokemonDetail.vue";
-import NotFound from "@/views/NotFound.vue";
+import PokemonGallery from "@/views/pokemon-gallery.vue";
+import PokemonDetail from "@/views/pokemon-detail.vue";
+import NotFound from "@/views/not-found.vue";
 
 Vue.use(VueRouter);
 
