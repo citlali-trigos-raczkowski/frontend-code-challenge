@@ -1,12 +1,14 @@
 <template>
   <v-list-item>
-    <v-list-item-avatar>
-      <v-img v-bind:src="pokemon.image"></v-img>
-    </v-list-item-avatar>
+    <router-link id="pokemon-list-link" v-bind:to="pokemon.name">
+      <v-list-item-avatar>
+        <v-img v-bind:src="pokemon.image"></v-img>
+      </v-list-item-avatar>
+      <v-list-item-content>
+        <v-list-item-title v-text="pokemon.name"></v-list-item-title>
+      </v-list-item-content>
+    </router-link>
 
-    <v-list-item-content>
-      <v-list-item-title v-text="pokemon.name"></v-list-item-title>
-    </v-list-item-content>
     <v-list-item-icon>
       <v-btn icon v-bind:color="heartColor" v-on:click="this.toggleFavorite">
         <v-icon>mdi-heart</v-icon>

@@ -4,6 +4,7 @@
       v-for="pokemon in pokemons"
       :key="pokemon.id"
       :pokemon="pokemon"
+      :pokemonTypes="pokemonTypes"
       :triggerReload="triggerReload"
       :toggleFavorite="toggleFavorite"
       :getHeartColor="getHeartColor"
@@ -86,14 +87,6 @@ export default Vue.extend({
       return pokemon.isFavorite ? "pink" : "gray";
     },
   },
-//   beforeMount() {
-//     this.heartColor = this.getHeartColor();
-//   },
-  //   data() {
-  //     return {
-  //       heartColor: "",
-  //     };
-  //   },
 });
 </script>
 <style src="@/assets/styles.css"></style>

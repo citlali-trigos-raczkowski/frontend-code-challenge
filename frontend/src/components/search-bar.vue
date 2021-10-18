@@ -5,6 +5,7 @@
       dense
       filled
       rounded
+      color="success"
       type="text"
       v-model="searchString"
       placeholder="Search for your Favorite Pokemon"

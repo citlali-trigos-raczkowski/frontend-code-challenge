@@ -1,8 +1,8 @@
 <template>
   <div :key="pokemon.id">
-    <v-card class="mx-auto" id="tile-card" light max-width="400">
-      <v-card-title>
-        <v-col cols="12" sm="3">
+    <v-card class="mx-auto" id="tile-card" light>
+      <v-card-title id="tile-header">
+        <v-col id="tile-heart" cols="6" sm="3">
           <v-btn
             icon
             v-bind:color="heartColor"

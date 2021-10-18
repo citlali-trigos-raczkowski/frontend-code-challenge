@@ -1,8 +1,8 @@
 <template>
   <div id="body">
     <router-link to="/">Return home</router-link>
-    <div v-if="loading">Loading!</div>
-    <div v-else-if="pokemon">
+    <loader v-if="loading" />
+    <div v-else>
       <div class="pokemonDetail">
         <h1>Pokemon Detail</h1>
         name {{ pokemon.name }} <br />
@@ -48,10 +48,11 @@ import EvolutionTile from "../components/evolution-tile.vue";
 import { logGenericError } from "../helper-functions/logging";
 import { getPathname, reRouteto } from "../helper-functions/routes";
 import { DetailedPokemonType } from "../types/pokemon-types";
+import Loader from "../components/loader.vue";
 
 export default Vue.extend({
   name: "PokemonDetail",
-  components: { "pokemon-evolution-tile": EvolutionTile },
+  components: { "pokemon-evolution-tile": EvolutionTile, loader: Loader },
   watch: {
     $route(to, from) {
       if (to !== from) {
@@ -77,8 +78,6 @@ export default Vue.extend({
             reRouteto(`${pathName}/not-found`);
           }
         });
-
-        this.loading = false;
         return;
       }
       logGenericError({
