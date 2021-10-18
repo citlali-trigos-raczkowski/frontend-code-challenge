@@ -1,22 +1,3 @@
-export type GetPokemonGalleryInput = {
-  searchString: string | void;
-  selectedFilter: string | void;
-  isFavoriteSearch: boolean;
-};
-
-export type GetPokemonDetailInput = {
-  pokemonName: string;
-};
-
-export type UpdateFavoriteStatusQueryInput = {
-  pokemonId: string;
-  queryString: string;
-};
-
-export type UpdateFavoriteStatusInput = {
-  pokemonId: string;
-};
-
 export type GalleryPokemon = {
   name: string;
   id: string;
@@ -48,7 +29,7 @@ export type DetailedPokemonType = {
 type EvolutionPokemonType = {
   image: string;
   name: string;
-}
+};
 type PokemonDimension = {
   minimum: string;
   maximum: string;
@@ -74,11 +55,6 @@ export type PokemonType = string;
 
 type ResistantType = string;
 type WeaknessesType = string;
-
-export type ApiResponse = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any;
-};
 
 export type PokemonEvolutionDataType = {
   name: string;

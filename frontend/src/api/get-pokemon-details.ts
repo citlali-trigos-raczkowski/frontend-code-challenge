@@ -1,9 +1,8 @@
 import axios from "axios";
-import {
-  GetPokemonDetailInput,
-  DetailedPokemonType,
-  ApiResponse,
-} from "./types";
+import { logGenericError, logStatusError } from "@/helper-functions/logging";
+import { GqlUrl } from "@/api/api-configuration";
+import { GetPokemonDetailInput, ApiResponse } from "@/types/api-types";
+import { DetailedPokemonType } from "@/types/pokemon-types";
 
 const GetPokemonDetail = async ({
   pokemonName,
@@ -17,7 +16,7 @@ const GetPokemonDetail = async ({
 
   try {
     const res = await axios({
-      url: "http://localhost:4000/graphql",
+      url: GqlUrl,
       method: "post",
       timeout: 8000,
       data: {
@@ -28,16 +27,22 @@ const GetPokemonDetail = async ({
       },
     });
     if (res.status !== 200) {
-      console.log(
-        `Response status ${res.status} for GetPokemonDetail for pokemon name ${pokemonName}.`
-      );
+      logStatusError({
+        functionName: "GetPokemonDetail",
+        status: res.status,
+        statusText: res.statusText,
+        queryString: null,
+      });
     }
 
     return (res.data as ApiResponse).data.pokemonByName as DetailedPokemonType;
   } catch (err) {
-    console.log(
-      `Query string ${queryString}. Error received from GetPokemonDetail: ${err}`
-    );
+    if (err) {
+      logGenericError({
+        functionName: "GetPokemonDetail",
+        errorMessage: `${err}`,
+      });
+    }
   }
 };
 
