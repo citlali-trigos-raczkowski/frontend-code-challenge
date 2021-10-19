@@ -16,9 +16,13 @@
             :heartColor="heartColor"
           />
         </div>
-        <h1 id="pokemon-detail-name">{{ pokemon.name }}</h1>
-        <br />
-        <strong>Types:</strong> {{ pokemon.types.join(", ") }}
+        <div id="pokemon-name-sound">
+          <h1>{{ pokemon.name }}</h1>
+          <sound-toggle id="pokemon-sound" :sound="pokemon.sound" />
+        </div>
+        <div v-if="pokemon.types">
+          <strong>Types:</strong> {{ pokemon.types.join(", ") }}
+        </div>
 
         <div id="pokemon-weight" v-if="pokemon && pokemon.weight">
           <strong>Weight</strong>: {{ pokemon.weight.minimum }} -
@@ -52,6 +56,7 @@ import { logGenericError } from "../helper-functions/logging";
 import { getPathname, reRouteto } from "../helper-functions/routes";
 import { DetailedPokemonType } from "../types/pokemon-types";
 import Loader from "../components/loader.vue";
+import SoundToggle from "../components/sound-toggle.vue";
 import HeartToggle from "../components/heart-toggle.vue";
 import { getHeartColor } from "../helper-functions/get-heart-color";
 import {
@@ -65,6 +70,7 @@ export default Vue.extend({
     "pokemon-evolution-tile": EvolutionTile,
     loader: Loader,
     "heart-toggle": HeartToggle,
+    "sound-toggle": SoundToggle,
   },
   watch: {
     $route(to, from) {

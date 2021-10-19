@@ -2,15 +2,19 @@
   <div id="navigation">
     <nav-tabs :viewAll="viewAll" :viewFavorites="viewFavorites" />
     <div id="side-by-side">
-      <search-bar :updateSearchString="updateSearchString" />
-      <dropdown-filter
-        v-bind:pokemonTypes="pokemonTypes"
-        v-bind:changeFilter="changeFilter"
-      />
-      <toggle-gallery-view
-        :galleryView="galleryView"
-        :updateGalleryView="updateGalleryView"
-      />
+      <span id="nav-left">
+        <search-bar :updateSearchString="updateSearchString" />
+      </span>
+      <span id="nav-right">
+        <dropdown-filter
+          v-bind:pokemonTypes="pokemonTypes"
+          v-bind:changeFilter="changeFilter"
+        />
+        <toggle-gallery-view
+          :galleryView="galleryView"
+          :updateGalleryView="updateGalleryView"
+        />
+      </span>
     </div>
   </div>
 </template>
