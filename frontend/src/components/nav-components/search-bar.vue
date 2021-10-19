@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="search-bar">
     <v-text-field
       clearable
       dense
@@ -8,7 +8,7 @@
       color="success"
       type="text"
       v-model="searchString"
-      placeholder="Search for your Favorite Pokemon"
+      :placeholder="SearchPlaceholder"
     >
     </v-text-field>
   </div>
@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { SearchPlaceholder } from "../../assets/constants";
 
 export default Vue.extend({
   name: "SearchBar",
@@ -32,6 +33,7 @@ export default Vue.extend({
   data() {
     return {
       searchString: "",
+      SearchPlaceholder
     };
   },
 });

@@ -8,6 +8,7 @@
 #title {
   text-align: left;
   margin: 1em 0;
+  color: black;
 }
 #body {
   margin: 3em auto;
@@ -23,11 +24,15 @@
 }
 #pokemon-tile {
   margin: 10px;
+  width: 30%;
   max-width: 260px;
 }
 #navigation {
-  margin: 3em auto 0em;
+  margin: 0em auto;
   text-align: center;
+}
+#nav-tabs {
+  margin-bottom: 15px;
 }
 #side-by-side {
   display: flex;

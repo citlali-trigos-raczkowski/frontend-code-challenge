@@ -1,14 +1,17 @@
 import { PokemonType } from "@/types/pokemon-types";
 import { PokemonDropdownType } from "@/types/component-types";
-
+import {
+  DropdownPlaceholder,
+  NothingDropdownOption,
+} from "../assets/constants";
 const directions = {
-  text: "Filter by Pokemon Type",
+  text: DropdownPlaceholder,
   value: null,
   disabled: true,
 };
-const nothingOption = { text: "No Filter", value: "all" };
 
-export const baseOptions = [directions, nothingOption];
+
+export const baseOptions = [directions, NothingDropdownOption];
 
 export const createPokemonTypeList = (
   pokemonTypeVals: PokemonType[]

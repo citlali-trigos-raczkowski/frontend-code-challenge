@@ -1,29 +1,13 @@
 <template>
   <div id="navigation">
-    <div id="title"><h1 bold>Who's That Pokemon?</h1></div>
-
-    <v-tabs>
-      <v-tab va @click="viewAll">All</v-tab>
-      <v-tab @click="viewFavorites">Favorites</v-tab> </v-tabs
-    ><br />
+    <nav-tabs :viewAll="viewAll" :viewFavorites="viewFavorites" />
     <div id="side-by-side">
-      <search-bar
-        id="search-bar"
-        v-bind:updateSearchString="updateSearchString"
+      <search-bar :updateSearchString="updateSearchString" />
+      <dropdown-filter
+        v-bind:pokemonTypes="pokemonTypes"
+        v-bind:changeFilter="changeFilter"
       />
-      <div id="filter-dropdown" v-if="pokemonTypes.length !== 0">
-        <v-select
-          :items="pokemonTypes"
-          dense
-          filled
-          rounded
-          placeholder="Filter by Type"
-          v-model="selectedFilter"
-          color="success"
-          @change="updateFilter"
-        ></v-select>
-      </div>
-      <div id="toggle-gallery-display">
+      <!-- <div id="toggle-gallery-display">
         <div v-if="galleryView">
           <v-app-bar-nav-icon
             v-on:click="updateGalleryView"
@@ -34,19 +18,29 @@
             <v-icon>mdi-apps</v-icon>
           </v-btn>
         </div>
-      </div>
+      </div> -->
+      <toggle-gallery-view
+      :galleryView="galleryView"
+      :updateGalleryView="updateGalleryView"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SearchBar from "../components/search-bar.vue";
+import SearchBar from "./nav-components/search-bar.vue";
+import DropDownFilter from "./nav-components/dropdown-filter.vue";
+import NavTabs from "./nav-components/nav-tabs.vue";
+import ToggleGalleryView from "./nav-components/toggle-gallery-view.vue";
 
 export default Vue.extend({
   name: "Navigation",
   components: {
     "search-bar": SearchBar,
+    "dropdown-filter": DropDownFilter,
+    "nav-tabs": NavTabs,
+    "toggle-gallery-view": ToggleGalleryView
   },
   props: {
     viewAll: {
@@ -70,16 +64,6 @@ export default Vue.extend({
     updateSearchString: {
       type: Function,
     },
-  },
-  methods: {
-    updateFilter: function () {
-      this.changeFilter(this.selectedFilter);
-    },
-  },
-  data() {
-    return {
-      selectedFilter: null,
-    };
   },
 });
 </script>
