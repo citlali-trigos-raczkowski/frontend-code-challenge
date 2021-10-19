@@ -10,8 +10,10 @@ const directions = {
   disabled: true,
 };
 
-
-export const baseOptions = [directions, NothingDropdownOption];
+export const baseOptions: PokemonDropdownType[] = [
+  directions,
+  NothingDropdownOption,
+];
 
 export const createPokemonTypeList = (
   pokemonTypeVals: PokemonType[]
@@ -22,6 +24,6 @@ export const createPokemonTypeList = (
   return [...baseOptions, ...pokemonList];
 };
 
-export const getFilterValue = (selectedFilter: string | null) => {
+export const getFilterValue = (selectedFilter: string | null): string => {
   return selectedFilter ? selectedFilter : "all";
 };

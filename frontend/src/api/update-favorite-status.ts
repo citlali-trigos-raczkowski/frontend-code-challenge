@@ -36,7 +36,7 @@ const UpdatePokemonStatus = async ({
         errorMessage: `${(res.data as ApiResponse).error}`,
       });
     }
-    console.log("from favorite API: ", res.data)
+    console.log("from favorite API: ", res.data);
     return (res.data as ApiResponse).data as ApiResponse;
   } catch (err) {
     if (err) {

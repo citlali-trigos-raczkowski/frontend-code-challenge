@@ -1,17 +1,10 @@
 <template>
   <div :key="pokemon.id">
     <v-card class="mx-auto" id="tile-card" light>
-      <v-card-title id="tile-header">
-        <v-col id="tile-heart" cols="6" sm="3">
-          <v-btn
-            icon
-            v-bind:color="heartColor"
-            v-on:click="togglePokemonfavorite"
-          >
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-        </v-col>
-      </v-card-title>
+      <heart-toggle
+        :togglePokemonfavorite="togglePokemonfavorite"
+        :heartColor="heartColor"
+      />
       <router-link v-bind:to="pokemon.name">
         <v-img v-bind:src="pokemon.image" height="200"></v-img>
 
@@ -30,8 +23,10 @@
 <script lang="ts">
 import Vue, { PropType } from "vue";
 import { GalleryPokemon } from "../types/pokemon-types";
+import HeartToggle from "./heart-toggle.vue";
 
 export default Vue.extend({
+  components: { "heart-toggle": HeartToggle },
   name: "PokemonTile",
   props: {
     pokemon: {

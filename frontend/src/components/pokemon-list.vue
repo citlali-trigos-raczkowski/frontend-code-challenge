@@ -8,21 +8,23 @@
         <v-list-item-title v-text="pokemon.name"></v-list-item-title>
       </v-list-item-content>
     </router-link>
-
-    <v-list-item-icon>
-      <v-btn icon :color="heartColor" v-on:click="togglePokemonfavorite">
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-    </v-list-item-icon>
+    <heart-toggle
+      :togglePokemonfavorite="togglePokemonfavorite"
+      :heartColor="heartColor"
+    />
   </v-list-item>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
 import { GalleryPokemon } from "../types/pokemon-types";
+import HeartToggle from "./heart-toggle.vue";
 
 export default Vue.extend({
   name: "PokemonTile",
+  components: {
+    "heart-toggle": HeartToggle,
+  },
   props: {
     pokemon: {
       type: Object as PropType<GalleryPokemon>,
