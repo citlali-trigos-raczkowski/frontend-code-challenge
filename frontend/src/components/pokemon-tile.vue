@@ -24,6 +24,7 @@
 import Vue, { PropType } from "vue";
 import { GalleryPokemon } from "../types/pokemon-types";
 import HeartToggle from "./heart-toggle.vue";
+import { getHeartColor } from "../helper-functions/get-heart-color";
 
 export default Vue.extend({
   components: { "heart-toggle": HeartToggle },
@@ -36,9 +37,6 @@ export default Vue.extend({
       type: Function,
     },
     toggleFavorite: {
-      type: Function,
-    },
-    getHeartColor: {
       type: Function,
     },
   },
@@ -54,7 +52,7 @@ export default Vue.extend({
       this.toggleFavorite(this.pokemon);
     },
     reloadHeart: function () {
-      this.heartColor = this.getHeartColor(this.pokemon);
+      this.heartColor = getHeartColor(this.pokemon);
     },
   },
   beforeMount() {

@@ -1,7 +1,9 @@
 <template>
-  <router-link id="title" to="/">
-    <h1 bold>{{ pageTitle }}</h1>
-  </router-link>
+  <div id="title-box">
+    <router-link id="title" to="/">
+      <h1 bold>{{ pageTitle }}</h1>
+    </router-link>
+  </div>
 </template>
 
 <script lang="ts">

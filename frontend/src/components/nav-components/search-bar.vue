@@ -33,7 +33,7 @@ export default Vue.extend({
   data() {
     return {
       searchString: "",
-      SearchPlaceholder
+      SearchPlaceholder,
     };
   },
 });

@@ -2,7 +2,7 @@
   <v-footer dark id="footer">
     <!-- <v-card  class="flex" flat tile> -->
     <v-card-title id="footer-top">
-      <div id="footer-left"/>
+      <div id="footer-left" />
       <div id="footer-center">
         <strong id="footer-heading">Thanks for visiting!</strong>
       </div>

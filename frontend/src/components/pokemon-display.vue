@@ -6,7 +6,6 @@
       :pokemon="pokemon"
       :triggerReload="triggerReload"
       :toggleFavorite="toggleFavorite"
-      :getHeartColor="getHeartColor"
       id="pokemon-tile"
     />
   </v-container>
@@ -17,7 +16,6 @@
       :pokemon="pokemon"
       :triggerReload="triggerReload"
       :toggleFavorite="toggleFavorite"
-      :getHeartColor="getHeartColor"
       id="pokemon-list"
     />
   </v-container>
@@ -61,7 +59,6 @@ export default Vue.extend({
           ) {
             console.log("successfully unfavorited");
             pokemon.isFavorite = false;
-            // this.heartColor = this.getHeartColor();
             this.triggerReload();
             return true;
           } else {
@@ -77,7 +74,6 @@ export default Vue.extend({
           ) {
             console.log("successfully favorited");
             pokemon.isFavorite = true;
-            // this.heartColor = this.getHeartColor();
             this.triggerReload();
             return true;
           } else {
@@ -86,9 +82,6 @@ export default Vue.extend({
         });
         return false;
       }
-    },
-    getHeartColor: function (pokemon: GalleryPokemon): string {
-      return pokemon.isFavorite ? "pink" : "gray";
     },
   },
 });

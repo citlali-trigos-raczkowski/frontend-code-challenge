@@ -5,10 +5,27 @@
   text-align: center;
   color: black;
 }
-#title {
+#title-box {
   text-align: left;
+}
+#title {
   margin: 1em 0;
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
   color: black;
+  overflow: hidden;
+  background: linear-gradient(to right, darkgrey, darkgrey 50%, black 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none;
+}
+#title:hover {
+  background-position: 0 100%;
 }
 #body {
   width: 70%;
@@ -19,7 +36,7 @@
   display: flex;
   width: 100%;
   padding: 0;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 #pokemon-tile {
@@ -33,6 +50,7 @@
 }
 #nav-tabs {
   margin-bottom: 15px;
+  min-width: 30px;
 }
 #side-by-side {
   display: flex;
@@ -41,7 +59,7 @@
   flex: 55%;
   float: left;
   margin-right: 10px;
-  /* height: .5em; */
+  min-width: 30px;
 }
 #filter-dropdown {
   width: 30%;
@@ -63,15 +81,16 @@
 #tile-heart {
   margin-left: auto;
   margin-right: 0;
+  text-align: right;
 }
 a:link {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 a:visited {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 a:hover {
@@ -80,7 +99,7 @@ a:hover {
 
 a:active {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 #pokemon-list {
@@ -92,6 +111,9 @@ a:active {
   display: flex;
   width: 80%;
   color: black;
+}
+#pokemon-list-heart{
+  margin-left: auto;
 }
 #pokemon-list:hover {
   background-color: #e0e0e0;
@@ -112,10 +134,10 @@ a:active {
 }
 
 #footer {
-  background-color:#e0e0e0;
+  background-color: #e0e0e0;
   display: flex;
   justify-content: space-between;
-  padding:0em;
+  padding: 0em;
   padding-top: 1em;
   position: absolute;
   bottom: 0;
@@ -132,14 +154,40 @@ a:active {
 }
 #footer-left {
   text-align: center;
-  flex: 1 
+  flex: 1;
 }
 #footer-center {
   text-align: center;
-  flex: 3 
+  flex: 3;
 }
 #footer-right {
   margin-left: auto;
   margin-right: 0;
-  flex: 1 
+  flex: 1;
+}
+#pokemon-detail {
+  background-color: #e0e0e0;
+  color: black;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap:wrap;
+  margin: 2em;
+  width: 100%;
+  text-align: left;
+}
+#pokemon-detail-name {
+  text-align: center;
+}
+#pokemon-detail-left {
+  flex: 1;
+  padding: 2em;
+  width: 100%;
+}
+#pokemon-detail-image {
+  width: 100%;
+  min-width: 100px
+}
+#pokemon-detail-info {
+  flex: 1;
+  padding: 1em;
 }

@@ -7,21 +7,9 @@
         v-bind:pokemonTypes="pokemonTypes"
         v-bind:changeFilter="changeFilter"
       />
-      <!-- <div id="toggle-gallery-display">
-        <div v-if="galleryView">
-          <v-app-bar-nav-icon
-            v-on:click="updateGalleryView"
-          ></v-app-bar-nav-icon>
-        </div>
-        <div v-else>
-          <v-btn v-on:click="updateGalleryView" icon>
-            <v-icon>mdi-apps</v-icon>
-          </v-btn>
-        </div>
-      </div> -->
       <toggle-gallery-view
-      :galleryView="galleryView"
-      :updateGalleryView="updateGalleryView"
+        :galleryView="galleryView"
+        :updateGalleryView="updateGalleryView"
       />
     </div>
   </div>
@@ -40,7 +28,7 @@ export default Vue.extend({
     "search-bar": SearchBar,
     "dropdown-filter": DropDownFilter,
     "nav-tabs": NavTabs,
-    "toggle-gallery-view": ToggleGalleryView
+    "toggle-gallery-view": ToggleGalleryView,
   },
   props: {
     viewAll: {
