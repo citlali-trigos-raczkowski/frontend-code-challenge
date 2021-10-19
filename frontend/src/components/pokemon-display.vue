@@ -4,7 +4,6 @@
       v-for="pokemon in pokemons"
       :key="pokemon.id"
       :pokemon="pokemon"
-      :pokemonTypes="pokemonTypes"
       :triggerReload="triggerReload"
       :toggleFavorite="toggleFavorite"
       :getHeartColor="getHeartColor"
@@ -56,13 +55,15 @@ export default Vue.extend({
       if (pokemon.isFavorite) {
         UnFavoritePokemon({ pokemonId: pokemon.id }).then((response) => {
           if (
-            response.favoritePokemon &&
-            response.favoritePokemon.id === pokemon.id
+            response &&
+            response.unFavoritePokemon &&
+            response.unFavoritePokemon.id === pokemon.id
           ) {
             console.log("successfully unfavorited");
             pokemon.isFavorite = false;
             // this.heartColor = this.getHeartColor();
             this.triggerReload();
+            return true;
           } else {
             console.log("failed to unfavorite");
           }
@@ -70,17 +71,20 @@ export default Vue.extend({
       } else {
         FavoritePokemon({ pokemonId: pokemon.id }).then((response) => {
           if (
-            response.unFavoritePokemon &&
-            response.unFavoritePokemon.id === pokemon.id
+            response &&
+            response.favoritePokemon &&
+            response.favoritePokemon.id === pokemon.id
           ) {
             console.log("successfully favorited");
             pokemon.isFavorite = true;
             // this.heartColor = this.getHeartColor();
             this.triggerReload();
+            return true;
           } else {
             console.log("failed to favorite");
           }
         });
+        return false;
       }
     },
     getHeartColor: function (pokemon: GalleryPokemon): string {

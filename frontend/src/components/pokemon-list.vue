@@ -1,8 +1,8 @@
 <template>
   <v-list-item>
-    <router-link id="pokemon-list-link" v-bind:to="pokemon.name">
+    <router-link id="pokemon-list-link" :to="pokemon.name">
       <v-list-item-avatar>
-        <v-img v-bind:src="pokemon.image"></v-img>
+        <v-img :src="pokemon.image"></v-img>
       </v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title v-text="pokemon.name"></v-list-item-title>
@@ -10,7 +10,7 @@
     </router-link>
 
     <v-list-item-icon>
-      <v-btn icon v-bind:color="heartColor" v-on:click="this.toggleFavorite">
+      <v-btn icon :color="heartColor" v-on:click="togglePokemonfavorite">
         <v-icon>mdi-heart</v-icon>
       </v-btn>
     </v-list-item-icon>
@@ -37,13 +37,23 @@ export default Vue.extend({
       type: Function,
     },
   },
+  watch: {
+    "pokemon.isFavorite": {
+      handler() {
+        this.reloadHeart();
+      },
+    },
+  },
   methods: {
     togglePokemonfavorite: function () {
       this.toggleFavorite(this.pokemon);
     },
+    reloadHeart: function () {
+      this.heartColor = this.getHeartColor(this.pokemon);
+    },
   },
   beforeMount() {
-    this.heartColor = this.getHeartColor(this.pokemon);
+    this.reloadHeart();
   },
   data() {
     return {

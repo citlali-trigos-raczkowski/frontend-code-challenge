@@ -1,5 +1,5 @@
 <template>
-  <div id="body">
+  <div>
     <div v-if="!typesLoading">
       <navigation
         :viewAll="viewAll"
@@ -18,6 +18,7 @@
         :pokemons="pokemons"
         :triggerReload="triggerReload"
         :galleryView="galleryView"
+        :pokemonTypes="pokemonTypes"
       />
     </div>
   </div>
@@ -112,7 +113,7 @@ export default Vue.extend({
       searchString: "",
       isFavoriteSearch: false,
       selectedFilter: null,
-      pokemonTypes: pokemonTypes,
+      pokemonTypes,
       galleryView: true,
       galleryLoading: true,
       typesLoading: true,

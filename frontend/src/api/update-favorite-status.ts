@@ -36,6 +36,7 @@ const UpdatePokemonStatus = async ({
         errorMessage: `${(res.data as ApiResponse).error}`,
       });
     }
+    console.log("from favorite API: ", res.data)
     return (res.data as ApiResponse).data as ApiResponse;
   } catch (err) {
     if (err) {
@@ -59,13 +60,13 @@ const getQueryString = (favorited: boolean) => {
 export const FavoritePokemon = async ({
   pokemonId,
 }: ToggleFavoritePokemonInput): Promise<ApiResponse | void> => {
-  const queryString = getQueryString(true);
+  const queryString = getQueryString(false);
   return UpdatePokemonStatus({ queryString, pokemonId });
 };
 
 export const UnFavoritePokemon = async ({
   pokemonId,
 }: ToggleFavoritePokemonInput): Promise<ApiResponse | void> => {
-  const queryString = getQueryString(false);
+  const queryString = getQueryString(true);
   return UpdatePokemonStatus({ queryString, pokemonId });
 };

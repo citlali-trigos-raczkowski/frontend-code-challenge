@@ -47,13 +47,23 @@ export default Vue.extend({
       type: Function,
     },
   },
+  watch: {
+    "pokemon.isFavorite": {
+      handler() {
+        this.reloadHeart();
+      },
+    },
+  },
   methods: {
     togglePokemonfavorite: function () {
       this.toggleFavorite(this.pokemon);
     },
+    reloadHeart: function () {
+      this.heartColor = this.getHeartColor(this.pokemon);
+    },
   },
   beforeMount() {
-    this.heartColor = this.getHeartColor(this.pokemon);
+    this.reloadHeart();
   },
   data() {
     return {
