@@ -36,14 +36,17 @@
         <strong>Max HP</strong>: {{ pokemon.maxHP }}<br />
       </div>
     </div>
-    <div id="evolution-tiles">
-      <pokemon-evolution-tile
-        v-for="pokemon in pokemon.evolutions"
-        :key="pokemon.id"
-        :pokemon="pokemon"
-      >
-      </pokemon-evolution-tile>
-    </div>
+    <pokemon-evolutions
+      v-if="loadEvolutions"
+      :pokemonEvolutions="pokemon.evolutions"
+    />
+    <favorite-alert
+      v-if="showAlert"
+      :alertType="alertType"
+      :pokemonName="pokemon.name"
+      :favorited="pokemon.isFavorite"
+      :clearAlert="clearAlert"
+    />
   </div>
 </template>
 
@@ -51,7 +54,8 @@
 import Vue from "vue";
 import { RemoveSlashes } from "../helper-functions/format-strings";
 import GetPokemonDetail from "../api/get-pokemon-details";
-import EvolutionTile from "../components/evolution-tile.vue";
+import Evolutions from "../components/evolutions.vue";
+import FavoriteAlert from "../components/favorite-alert.vue";
 import { logGenericError } from "../helper-functions/logging";
 import { getPathname, reRouteto } from "../helper-functions/routes";
 import { DetailedPokemonType } from "../types/pokemon-types";
@@ -67,10 +71,11 @@ import {
 export default Vue.extend({
   name: "PokemonDetail",
   components: {
-    "pokemon-evolution-tile": EvolutionTile,
+    "pokemon-evolutions": Evolutions,
     loader: Loader,
     "heart-toggle": HeartToggle,
     "sound-toggle": SoundToggle,
+    "favorite-alert": FavoriteAlert,
   },
   watch: {
     $route(to, from) {
@@ -91,6 +96,7 @@ export default Vue.extend({
             this.pokemon = response as DetailedPokemonType;
             this.reloadHeart();
             this.loading = false;
+            this.showEvolutions();
             return;
           }
           const pathName = getPathname();
@@ -107,13 +113,16 @@ export default Vue.extend({
       });
       reRouteto("/");
     },
-    pokemonNotEmpty: function (): boolean {
-      return Object.keys(this.pokemon).length === 0;
+    showEvolutions: function (): void {
+      this.loadEvolutions =
+        this.pokemon.evolutions &&
+        Object.keys(this.pokemon.evolutions).length !== 0;
     },
     reloadHeart: function () {
       this.heartColor = getHeartColor(this.pokemon);
     },
     togglePokemonfavorite: function () {
+      this.showAlert = false;
       if (this.pokemon.isFavorite) {
         UnFavoritePokemon({ pokemonId: this.pokemon.id }).then((response) => {
           if (
@@ -121,11 +130,13 @@ export default Vue.extend({
             response.unFavoritePokemon &&
             response.unFavoritePokemon.id === this.pokemon.id
           ) {
-            console.log("successfully unfavorited");
             this.pokemon.isFavorite = false;
             this.reloadHeart();
+            this.alertType = "success";
+            this.showAlert = true;
           } else {
-            console.log("failed to unfavorite");
+            this.alertType = "error";
+            this.showAlert = true;
           }
         });
       } else {
@@ -135,14 +146,19 @@ export default Vue.extend({
             response.favoritePokemon &&
             response.favoritePokemon.id === this.pokemon.id
           ) {
-            console.log("successfully favorited");
             this.pokemon.isFavorite = true;
             this.reloadHeart();
+            this.alertType = "success";
+            this.showAlert = true;
           } else {
-            console.log("failed to favorite");
+            this.alertType = "error";
+            this.showAlert = true;
           }
         });
       }
+    },
+    clearAlert: function () {
+      this.showAlert = false;
     },
   },
   beforeMount() {
@@ -155,6 +171,9 @@ export default Vue.extend({
       windowLocation: RemoveSlashes(getPathname()),
       pokemon,
       heartColor: "",
+      alertType: "",
+      showAlert: false,
+      loadEvolutions: false,
     };
   },
 });

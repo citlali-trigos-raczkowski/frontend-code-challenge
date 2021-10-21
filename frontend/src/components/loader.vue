@@ -1,9 +1,12 @@
 <template>
-  <v-progress-circular
-    :size="70"
-    indeterminate
-    color="amber"
-  ></v-progress-circular>
+  <div id="loader">
+    <v-progress-circular
+      :size="70"
+      width="7"
+      indeterminate
+      color="amber"
+    ></v-progress-circular>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";

@@ -17,14 +17,15 @@ To read about the [day-to-day work, go here](/docs/dayToDay.md). And to visit th
 
 ### Features
 #### App Features
-- fuzzy search bar 
 - infinite scroll + loading bar
 - Pokemon image behind tile; on over --> opacity goes up
 - Randomize me! option as first tile w/ occasional die movement
 - Title `Who's that Pokemon` minimizes to WTP icon in top left 
 - Existing `Not found` page
 - Favorites toggling
-- On scroll, title turns into icon and remains on page
+
+- Title animation
+- Sound
 
 #### Dev Features
 - web hooks on commit
@@ -34,7 +35,6 @@ To read about the [day-to-day work, go here](/docs/dayToDay.md). And to visit th
 
 #### By Page Navigation 
 - Home page with
-    - fuzzy search
     - filtered pokemon via type
     - tabs for All or Favorite
     - ability to toggle favorite
@@ -43,13 +43,13 @@ To read about the [day-to-day work, go here](/docs/dayToDay.md). And to visit th
     - infinite scroll
     - ability to choose random pokemon
 - Individual Pokemon view
-    - ability to toggle favoritecd 
+    - ability to toggle favorite
     - speaker icon that can play pokemon sound
 - Not Found page
     - When navigating to `/:name` but `name` does not exist
     - link to return back home 
 
-#### Features for the future (if time permitted)
+#### Wish List / To do List 
 - toast notifications to display success and error messages for adding/removing from Favorites
 - page transitions
 - PR to update node-sass version in OG repo
@@ -57,3 +57,5 @@ To read about the [day-to-day work, go here](/docs/dayToDay.md). And to visit th
 - ability to create a new pokemon
 - treeshaking
 - fp-ts for option
+- tests
+- auto -scroll up

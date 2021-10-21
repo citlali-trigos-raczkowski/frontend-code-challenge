@@ -1,6 +1,5 @@
 <template>
   <v-footer dark id="footer">
-    <!-- <v-card  class="flex" flat tile> -->
     <v-card-title id="footer-top">
       <div id="footer-left" />
       <div id="footer-center">
@@ -20,7 +19,6 @@
     <v-card-text id="footer-bottom" class="py-2 white--text text-center">
       {{ new Date().getFullYear() }} — {{ DeveloperName }}
     </v-card-text>
-    <!-- </v-card> -->
   </v-footer>
 </template>
 

@@ -55,12 +55,9 @@ export default Vue.extend({
       });
       response.then((result: GalleryPokemon[] | void) => {
         if (result) {
+          // eslint-disable-next-line
           this.pokemons = Object.assign({}, {}, result) as any;
           this.galleryLoading = false;
-          console.log(
-            "updated to # pokeys fetched: ",
-            Object.keys(this.pokemons).length
-          );
         }
       });
     },
@@ -91,6 +88,7 @@ export default Vue.extend({
       }
     },
     changeFilter: function (filter: string | null) {
+      // eslint-disable-next-line
       this.selectedFilter = filter as any;
       this.fetchGalleryPokemons();
     },
