@@ -1,23 +1,16 @@
 <template>
-  <div id="body">
-    <div id="not-found">
-      <v-card class="mx-auto" id="not-found-tile">
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-          height="200px"
-        ></v-img>
-      </v-card>
-      <v-card id="not-found-tile">
-        <v-card-title> Oh no! We could not find that page </v-card-title>
-
-        <v-card-subtitle>Here's a sad pikachu </v-card-subtitle>
-
-        <v-card-actions id="not-found-return-home">
-          <v-btn @click="routeHome" color="orange lighten-2" text>
-            Return home <v-icon>{{ "mdi-arrow-right" }}</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+  <div id="not-found-page">
+    <router-link id="not-found-link-home" to="/pikachu">
+      <img
+        id="not-found-image"
+        src="../../public/happy-pikachu.png"
+        alt="pokemon-image"
+    /></router-link>
+    <div id="not-found-info">
+      <h2>Oh no! That page was not found.</h2>
+      <h3>Here's Pikachu instead.</h3>
+      <br />
+      <router-link id="not-found-link-home" to="/"> Return home </router-link><h5>(or click Pikachu)</h5>
     </div>
   </div>
 </template>
@@ -25,13 +18,18 @@
 <script lang="ts">
 import Vue from "vue";
 import { reRouteto } from "../helper-functions/routes";
-
 export default Vue.extend({
   name: "NotFound",
   methods: {
-    routeHome: function () {
-      reRouteto("/");
+    routePikachu: function () {
+      reRouteto("/pikachu");
     },
+  },
+  data() {
+    const PikachuImage = "/public/happy-pikachu.png";
+    return {
+      PikachuImage,
+    };
   },
 });
 </script>
