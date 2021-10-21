@@ -3,11 +3,10 @@
     <v-app id="app" class="pokedex">
       <div id="body">
         <Title />
-        <v-main>
+        <transition name="fade" mode="out-in">
           <router-view />
-        </v-main>
+        </transition>
       </div>
-
       <Footer />
     </v-app>
   </div>
@@ -24,4 +23,3 @@ export default Vue.extend({
 });
 </script>
 
-<style src="@/assets/styles.css"></style>
