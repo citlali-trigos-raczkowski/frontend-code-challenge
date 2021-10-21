@@ -13,14 +13,14 @@ const routes: Array<RouteConfig> = [
     component: PokemonGallery,
   },
   {
-    path: "/:name",
-    name: "pokemon-detail",
-    component: PokemonDetail,
-  },
-  {
-    path: "/:name/not-found",
+    path: "*/not-found",
     name: "not-found",
     component: NotFound,
+  },
+  {
+    path: "/*",
+    name: "pokemon-detail",
+    component: PokemonDetail,
   },
 ];
 

@@ -99,10 +99,7 @@ export default Vue.extend({
             this.showEvolutions();
             return;
           }
-          const pathName = getPathname();
-          if (!pathName.includes("not-found")) {
-            reRouteto(`${pathName}/not-found`);
-          }
+          reRouteto(`/not-found`);
         });
         return;
       }
