@@ -1,14 +1,12 @@
 <template>
-  <router-link id="EvolutionTile" v-bind:to="pokemon.name">
-    <v-app id="inspire">
-      <v-card max-width="200">
-        <v-img v-bind:src="pokemon.image" height="auto"></v-img>
+  <router-link id="evolution-tile" v-bind:to="pokemon.name">
+    <v-card max-width="200">
+      <v-img v-bind:src="pokemon.image" height="200"></v-img>
+      <div id="evolution-text">
         <v-card-title>{{ pokemon.name }}</v-card-title>
-        <v-card-actions>
-          <v-btn color="orange lighten-2" text> Explore </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-app>
+        <v-icon color="orange lighten-2">mdi-arrow-right</v-icon>
+      </div>
+    </v-card>
   </router-link>
 </template>
 
