@@ -1,7 +1,12 @@
 <template>
   <v-card-title id="tile-header">
     <v-col id="tile-heart">
-      <v-btn icon v-bind:color="heartColor" v-on:click="togglePokemonfavorite">
+      <v-btn
+        data-cy="toggle-pokemon-favorite"
+        icon
+        v-bind:color="heartColor"
+        v-on:click="togglePokemonfavorite"
+      >
         <v-icon>mdi-heart</v-icon>
       </v-btn>
     </v-col>

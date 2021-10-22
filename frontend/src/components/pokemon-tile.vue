@@ -1,11 +1,11 @@
 <template>
-  <div :key="pokemon.id">
+  <div :key="pokemon.id" data-cy="pokemon-tile">
     <v-card class="mx-auto" id="tile-card" light>
       <heart-toggle
         :togglePokemonfavorite="togglePokemonfavorite"
         :heartColor="heartColor"
       />
-      <router-link v-bind:to="pokemon.name">
+      <router-link data-cy="view-pokemon-link" v-bind:to="pokemon.name">
         <v-img v-bind:src="pokemon.image" height="200"></v-img>
 
         <v-card-actions>

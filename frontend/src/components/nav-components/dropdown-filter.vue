@@ -7,6 +7,7 @@
     v-model="selectedFilter"
     color="success"
     @change="updateFilter"
+    data-cy="filter-dropdown"
   ></v-select>
 </template>
 

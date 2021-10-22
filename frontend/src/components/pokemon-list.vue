@@ -1,5 +1,5 @@
 <template>
-  <v-list-item>
+  <v-list-item data-cy="pokemon-list-item">
     <router-link id="pokemon-list-link" :to="pokemon.name">
       <v-list-item-avatar>
         <v-img :src="pokemon.image"></v-img>

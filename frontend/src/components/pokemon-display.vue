@@ -8,6 +8,7 @@
         :triggerReload="triggerReload"
         :toggleFavorite="toggleFavorite"
         id="pokemon-tile"
+        data-cy="gallery-tiles"
       />
     </v-container>
     <v-container v-else id="gallery-list" class="lighten-5">
@@ -18,6 +19,7 @@
         :triggerReload="triggerReload"
         :toggleFavorite="toggleFavorite"
         id="pokemon-list"
+        data-cy="gallery-list"
       />
     </v-container>
     <favorite-alert

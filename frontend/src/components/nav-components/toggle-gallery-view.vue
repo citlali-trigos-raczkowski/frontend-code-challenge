@@ -1,10 +1,10 @@
 <template>
   <div id="toggle-gallery-display">
-    <div v-if="galleryView">
+    <div data-cy="toggle-to-list" v-if="galleryView">
       <v-app-bar-nav-icon v-on:click="updateGalleryView"></v-app-bar-nav-icon>
     </div>
     <div v-else>
-      <v-btn v-on:click="updateGalleryView" icon>
+      <v-btn data-cy="toggle-to-tiles" v-on:click="updateGalleryView" icon>
         <v-icon>mdi-apps</v-icon>
       </v-btn>
     </div>

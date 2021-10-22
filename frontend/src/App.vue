@@ -22,4 +22,3 @@ export default Vue.extend({
   components: { Footer, Title },
 });
 </script>
-

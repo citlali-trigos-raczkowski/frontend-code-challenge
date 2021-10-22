@@ -5,6 +5,7 @@
     :type="alertType"
     dismissible
     v-model="show"
+    data-cy="favorite-alert"
   >
     {{ this.alertString }}</v-alert
   >

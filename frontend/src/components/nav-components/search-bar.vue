@@ -9,6 +9,7 @@
       type="text"
       v-model="searchString"
       :placeholder="SearchPlaceholder"
+      data-cy="search-bar"
     >
     </v-text-field>
   </div>
