@@ -5,12 +5,11 @@
     filled
     rounded
     v-model="selectedFilter"
-    color="success"
     @change="updateFilter"
     data-cy="filter-dropdown"
+    :dark="modeOption !== 'Dark'"
   ></v-select>
 </template>
-
 <script lang="ts">
 import Vue from "vue";
 
@@ -23,6 +22,9 @@ export default Vue.extend({
     changeFilter: {
       type: Function,
     },
+    modeOption: {
+      type: String,
+    },
   },
   methods: {
     updateFilter: function (selectFilter: string) {
@@ -32,6 +34,7 @@ export default Vue.extend({
   data() {
     return {
       selectedFilter: null,
+      displayVariant: this.modeOption.toLowerCase(),
     };
   },
 });

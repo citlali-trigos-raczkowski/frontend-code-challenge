@@ -3,12 +3,16 @@
     <nav-tabs :viewAll="viewAll" :viewFavorites="viewFavorites" />
     <div id="side-by-side">
       <span id="nav-left">
-        <search-bar :updateSearchString="updateSearchString" />
+        <search-bar
+          :updateSearchString="updateSearchString"
+          :modeOption="modeOption"
+        />
       </span>
       <span id="nav-right">
         <dropdown-filter
           v-bind:pokemonTypes="pokemonTypes"
           v-bind:changeFilter="changeFilter"
+          :modeOption="modeOption"
         />
         <toggle-gallery-view
           :galleryView="galleryView"
@@ -55,6 +59,9 @@ export default Vue.extend({
     },
     updateSearchString: {
       type: Function,
+    },
+    modeOption: {
+      type: String,
     },
   },
 });

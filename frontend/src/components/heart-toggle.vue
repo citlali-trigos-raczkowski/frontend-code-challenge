@@ -1,11 +1,12 @@
 <template>
   <v-card-title id="tile-header">
-    <v-col id="tile-heart">
+    <v-col id="tile-heart-container">
       <v-btn
         data-cy="toggle-pokemon-favorite"
         icon
-        v-bind:color="heartColor"
+        v-bind:color="heartColor === 'pink' ? 'pink' : 'inherit'"
         v-on:click="togglePokemonfavorite"
+        id="tile-heart"
       >
         <v-icon>mdi-heart</v-icon>
       </v-btn>

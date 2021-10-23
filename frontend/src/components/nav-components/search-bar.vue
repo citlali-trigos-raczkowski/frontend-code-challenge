@@ -1,18 +1,16 @@
 <template>
-  <div id="search-bar">
-    <v-text-field
-      clearable
-      dense
-      filled
-      rounded
-      color="success"
-      type="text"
-      v-model="searchString"
-      :placeholder="SearchPlaceholder"
-      data-cy="search-bar"
-    >
-    </v-text-field>
-  </div>
+  <v-text-field
+    clearable
+    dense
+    filled
+    rounded
+    id="search-bar"
+    type="text"
+    v-model="searchString"
+    :placeholder="SearchPlaceholder"
+    data-cy="search-bar"
+    :dark="modeOption !== 'Dark'"
+  />
 </template>
 
 <script lang="ts">
@@ -25,6 +23,9 @@ export default Vue.extend({
     updateSearchString: {
       type: Function,
     },
+    modeOption: {
+      type: String,
+    },
   },
   watch: {
     searchString() {
@@ -35,6 +36,7 @@ export default Vue.extend({
     return {
       searchString: "",
       SearchPlaceholder,
+      displayVariant: this.modeOption.toLowerCase(),
     };
   },
 });

@@ -11,7 +11,9 @@
         <v-card-actions>
           <v-list-item class="grow">
             <v-list-item-content>
-              <v-list-item-title>{{ pokemon.name }}</v-list-item-title>
+              <v-list-item-title id="pokemon-tile-name">{{
+                pokemon.name
+              }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-card-actions>

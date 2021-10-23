@@ -38,24 +38,28 @@ export default Vue.extend({
     },
   },
   methods: {
-    getAlertString: function (): string {
+    getAlertValues: function (): void {
       if (this.alertType === "success") {
-        return `Successfully ${this.favorited ? "" : "un"}favorited ${
+        this.alertString = `Successfully ${
+          this.favorited ? "" : "un"
+        }favorited ${this.pokemonName}`;
+        this.alertColor = "green";
+      } else {
+        this.alertString = `Failed to ${this.favorited ? "" : "un"}favorite ${
           this.pokemonName
         }`;
+        this.alertColor = "red";
       }
-      return `Failed to ${this.favorited ? "" : "un"}favorite ${
-        this.pokemonName
-      }`;
     },
   },
   beforeMount() {
-    this.alertString = this.getAlertString();
+    this.getAlertValues();
   },
   data() {
     return {
       alertString: "",
       show: true,
+      alertColor: "",
     };
   },
 });

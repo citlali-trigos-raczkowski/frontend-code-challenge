@@ -1,5 +1,5 @@
 <template>
-  <v-btn alt="pokemon audio" icon color="black" v-on:click="playAudio">
+  <v-btn alt="pokemon audio" icon color="inherit" v-on:click="playAudio">
     <v-icon>mdi-volume-high</v-icon>
     <audio id="trigger-sound">
       <source :src="sound" type="audio/mp3" />

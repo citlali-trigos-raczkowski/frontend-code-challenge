@@ -1,7 +1,11 @@
 <template>
-  <v-tabs id="nav-tabs">
-    <v-tab data-cy="view-all-tab" va @click="viewAll">All</v-tab>
-    <v-tab data-cy="view-favorites-tab" @click="viewFavorites">Favorites</v-tab>
+  <v-tabs background-color="transparent" id="nav-tabs">
+    <v-tab data-cy="view-all-tab" @click="viewAll"
+      ><span id="nav-tab-item">All</span></v-tab
+    >
+    <v-tab data-cy="view-favorites-tab" @click="viewFavorites"
+      ><span id="nav-tab-item">Favorites</span></v-tab
+    >
   </v-tabs>
 </template>
 

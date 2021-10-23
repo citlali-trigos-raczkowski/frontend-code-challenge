@@ -10,6 +10,7 @@
         :changeFilter="changeFilter"
         :updateGalleryView="updateGalleryView"
         :pokemonTypes="pokemonTypes"
+        :modeOption="modeOption"
       />
     </div>
     <loader v-if="galleryLoading" />
@@ -41,6 +42,11 @@ import Vue, { PropType } from "vue";
 
 export default Vue.extend({
   name: "PokemonGallery",
+  props: {
+    modeOption: {
+      type: String,
+    },
+  },
   components: {
     "pokemon-display": PokemonDisplay,
     navigation: Navigation,

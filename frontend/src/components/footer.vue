@@ -8,7 +8,7 @@
       <div id="footer-right">
         <v-btn v-for="icon in icons" :key="icon.name" class="mx-4" dark icon>
           <a target="_blank" :href="icon.link">
-            <v-icon color="black" size="24px">
+            <v-icon id="footer-icon" color="inherit" size="24px">
               {{ icon.name }}
             </v-icon>
           </a>
@@ -16,7 +16,7 @@
       </div>
     </v-card-title>
 
-    <v-card-text id="footer-bottom" class="py-2 white--text text-center">
+    <v-card-text id="footer-bottom" class="py-2 text-center">
       {{ new Date().getFullYear() }} — {{ DeveloperName }}
     </v-card-text>
   </v-footer>
