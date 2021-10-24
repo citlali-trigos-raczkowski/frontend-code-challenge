@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/heart-toggle.vue renders correctly 1`] = `
+<v-card-title-stub
+  id="tile-header"
+>
+  <v-col-stub
+    id="tile-heart-container"
+    tag="div"
+  >
+    <v-btn-stub
+      activeclass=""
+      color="pink"
+      data-cy="toggle-pokemon-favorite"
+      icon="true"
+      id="tile-heart"
+      tag="button"
+      type="button"
+    >
+      <v-icon-stub>
+        mdi-heart
+      </v-icon-stub>
+    </v-btn-stub>
+  </v-col-stub>
+</v-card-title-stub>
+`;

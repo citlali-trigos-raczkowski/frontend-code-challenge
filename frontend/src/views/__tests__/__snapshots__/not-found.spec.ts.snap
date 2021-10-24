@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`views/not-found.vue renders correctly 1`] = `
+<div
+  id="not-found-page"
+>
+  <router-link-stub
+    ariacurrentvalue="page"
+    data-cy="view-pikachu-link"
+    event="click"
+    id="not-found-link-pikachu"
+    tag="a"
+    to="/pikachu"
+  >
+    <img
+      alt="pokemon-image"
+      id="not-found-image"
+      src="../../public/happy-pikachu.png"
+    />
+  </router-link-stub>
+   
+  <div
+    id="not-found-info"
+  >
+    <h2>
+      Oh no! That page was not found.
+    </h2>
+     
+    <h3>
+      Here's Pikachu instead.
+    </h3>
+     
+    <br />
+     
+    <router-link-stub
+      ariacurrentvalue="page"
+      data-cy="return-home-link"
+      event="click"
+      id="not-found-link-home"
+      tag="a"
+      to="/"
+    >
+      
+      Return home
+    
+    </router-link-stub>
+     
+    <h5>
+      (or click Pikachu)
+    </h5>
+  </div>
+</div>
+`;

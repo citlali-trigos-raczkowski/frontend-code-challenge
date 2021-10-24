@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/evolution-tile.vue renders correctly 1`] = `
+<router-link-stub
+  ariacurrentvalue="page"
+  event="click"
+  id="evolution-tile"
+  tag="a"
+  to="Ivysaur"
+>
+  <v-card-stub
+    loaderheight="4"
+    maxwidth="200"
+    tag="div"
+  >
+    <v-img-stub
+      height="200"
+      options="[object Object]"
+      position="center center"
+      src="https://img.pokemondb.net/artwork/ivysaur.jpg"
+      transition="fade-transition"
+    />
+     
+    <div
+      id="evolution-text"
+    >
+      <v-card-title-stub>
+        Ivysaur
+      </v-card-title-stub>
+       
+      <v-icon-stub
+        color="orange lighten-2"
+      >
+        mdi-arrow-right
+      </v-icon-stub>
+    </div>
+  </v-card-stub>
+</router-link-stub>
+`;

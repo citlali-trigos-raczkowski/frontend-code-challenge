@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/pokemon-tile.vue renders correctly 1`] = `
+<div
+  data-cy="pokemon-tile"
+>
+  <v-card-stub
+    class="mx-auto"
+    id="tile-card"
+    light="true"
+    loaderheight="4"
+    tag="div"
+  >
+    <heart-toggle-stub
+      heartcolor="pink"
+      togglepokemonfavorite="[Function]"
+    />
+     
+    <router-link-stub
+      ariacurrentvalue="page"
+      data-cy="view-pokemon-link"
+      event="click"
+      tag="a"
+      to="Ivysaur"
+    >
+      <v-img-stub
+        height="200"
+        options="[object Object]"
+        position="center center"
+        src="https://img.pokemondb.net/artwork/ivysaur.jpg"
+        transition="fade-transition"
+      />
+       
+      <v-card-actions-stub>
+        <v-list-item-stub
+          activeclass=""
+          class="grow"
+          tag="div"
+        >
+          <v-list-item-content-stub>
+            <v-list-item-title-stub
+              id="pokemon-tile-name"
+            >
+              Ivysaur
+            </v-list-item-title-stub>
+          </v-list-item-content-stub>
+        </v-list-item-stub>
+      </v-card-actions-stub>
+    </router-link-stub>
+  </v-card-stub>
+</div>
+`;

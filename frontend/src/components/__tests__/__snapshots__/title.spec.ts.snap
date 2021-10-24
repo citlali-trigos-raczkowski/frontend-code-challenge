@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/title.vue renders correctly 1`] = `
+<div
+  id="title-box"
+  pagetitle="Page Title Sample"
+>
+  <router-link-stub
+    ariacurrentvalue="page"
+    event="click"
+    id="title"
+    tag="a"
+    to="/"
+  >
+    <h1
+      bold=""
+    >
+      Who's That Pokemon?
+    </h1>
+  </router-link-stub>
+</div>
+`;

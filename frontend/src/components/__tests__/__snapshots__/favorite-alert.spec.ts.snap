@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/favorite-alert.vue renders correctly 1`] = `
+<v-alert-stub
+  closeicon="$cancel"
+  closelabel="$vuetify.close"
+  data-cy="favorite-alert"
+  dismissible="true"
+  icon=""
+  id="favorite-alert"
+  successalertpropdata="[object Object]"
+  tag="div"
+  transition="slide-x-reverse-transition"
+  value="true"
+>
+  
+  Failed to unfavorite undefined
+</v-alert-stub>
+`;

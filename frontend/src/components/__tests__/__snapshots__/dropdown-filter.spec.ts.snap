@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/dropdown-filter.vue renders correctly 1`] = `
+<v-select-stub
+  appendicon="$dropdown"
+  backgroundcolor=""
+  clearicon="$clear"
+  dark="true"
+  data-cy="filter-dropdown"
+  dense="true"
+  errorcount="1"
+  errormessages=""
+  filled="true"
+  itemcolor="primary"
+  itemdisabled="disabled"
+  items="fire,water"
+  itemtext="text"
+  itemvalue="value"
+  loaderheight="2"
+  menuprops="[object Object]"
+  messages=""
+  nodatatext="$vuetify.noDataText"
+  rounded="true"
+  rules=""
+  successmessages=""
+  type="text"
+  valuecomparator="[Function]"
+/>
+`;
