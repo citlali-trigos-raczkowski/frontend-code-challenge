@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/evolutions.vue renders correctly 1`] = `
+<div
+  id="evolutions"
+>
+  <h2
+    id="fall-left"
+  >
+    Evolutions
+  </h2>
+   
+  <div
+    id="evolution-container"
+  >
+    <pokemon-evolution-tile-stub
+      pokemon="[object Object]"
+    />
+  </div>
+</div>
+`;

@@ -62,7 +62,7 @@ export default Vue.extend({
       response.then((result: GalleryPokemon[] | void) => {
         if (result) {
           // eslint-disable-next-line
-          this.pokemons = Object.assign({}, {}, result) as any;
+          this.pokemons = result as GalleryPokemon[] as any;
           this.galleryLoading = false;
         }
       });

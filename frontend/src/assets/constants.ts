@@ -1,12 +1,14 @@
 export const PageTitle = "Who's That Pokemon?";
 export const SearchPlaceholder = "Search for your favorite Pokemon...";
-export const DropdownPlaceholder = "Filter by type";
-const NoFilterDropdownOption = "No Filter";
 export const NothingDropdownOption = {
-  text: NoFilterDropdownOption,
+  text: "No Filter",
   value: "all",
 };
-
+export const DropdownDirections = {
+  text: "Filter by type",
+  value: null,
+  disabled: true,
+};
 export const DeveloperName = "Citlali Trigos-Raczkowski";
 export const LinkedInLink =
   "https://www.linkedin.com/in/citlali-trigos-raczkowski/";

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/pokemon-list.vue renders correctly 1`] = `
+<v-list-item-stub
+  activeclass=""
+  data-cy="pokemon-list-item"
+  tag="div"
+>
+  <router-link-stub
+    ariacurrentvalue="page"
+    event="click"
+    id="pokemon-list-link"
+    tag="a"
+    to="Ivysaur"
+  >
+    <v-list-item-avatar-stub
+      size="40"
+    >
+      <v-img-stub
+        options="[object Object]"
+        position="center center"
+        src="https://img.pokemondb.net/artwork/ivysaur.jpg"
+        transition="fade-transition"
+      />
+    </v-list-item-avatar-stub>
+     
+    <v-list-item-content-stub>
+      <v-list-item-title-stub>
+        Ivysaur
+      </v-list-item-title-stub>
+    </v-list-item-content-stub>
+  </router-link-stub>
+   
+  <heart-toggle-stub
+    heartcolor="pink"
+    id="pokemon-list-heart"
+    togglepokemonfavorite="[Function]"
+  />
+</v-list-item-stub>
+`;

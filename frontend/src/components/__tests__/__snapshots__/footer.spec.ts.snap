@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/footer.vue renders correctly 1`] = `
+<v-footer-stub
+  dark="true"
+  height="auto"
+  id="footer"
+  tag="footer"
+>
+  <v-card-title-stub
+    id="footer-top"
+  >
+    <div
+      id="footer-left"
+    />
+     
+    <div
+      id="footer-center"
+    >
+      <strong
+        id="footer-heading"
+      >
+        Thanks for visiting!
+      </strong>
+    </div>
+     
+    <div
+      id="footer-right"
+    >
+      <v-btn-stub
+        activeclass=""
+        class="mx-4"
+        dark="true"
+        icon="true"
+        tag="button"
+        type="button"
+      >
+        <a
+          href="https://www.linkedin.com/in/citlali-trigos-raczkowski/"
+          target="_blank"
+        >
+          <v-icon-stub
+            color="inherit"
+            id="footer-icon"
+            size="24px"
+          >
+            
+            mdi-linkedin
+          
+          </v-icon-stub>
+        </a>
+      </v-btn-stub>
+      <v-btn-stub
+        activeclass=""
+        class="mx-4"
+        dark="true"
+        icon="true"
+        tag="button"
+        type="button"
+      >
+        <a
+          href="https://github.com/citlali-trigos-raczkowski"
+          target="_blank"
+        >
+          <v-icon-stub
+            color="inherit"
+            id="footer-icon"
+            size="24px"
+          >
+            
+            mdi-github
+          
+          </v-icon-stub>
+        </a>
+      </v-btn-stub>
+    </div>
+  </v-card-title-stub>
+   
+  <v-card-text-stub
+    class="py-2 text-center"
+    id="footer-bottom"
+  >
+    
+    2021 — Citlali Trigos-Raczkowski
+  
+  </v-card-text-stub>
+</v-footer-stub>
+`;

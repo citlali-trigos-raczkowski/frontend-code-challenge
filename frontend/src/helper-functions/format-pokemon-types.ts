@@ -1,17 +1,10 @@
 import { PokemonType } from "@/types/pokemon-types";
 import { PokemonDropdownType } from "@/types/component-types";
-import {
-  DropdownPlaceholder,
-  NothingDropdownOption,
-} from "../assets/constants";
-const directions = {
-  text: DropdownPlaceholder,
-  value: null,
-  disabled: true,
-};
+import { DropdownDirections, NothingDropdownOption } from "../assets/constants";
+import { isNotEmpty } from "./format-strings";
 
 export const baseOptions: PokemonDropdownType[] = [
-  directions,
+  DropdownDirections,
   NothingDropdownOption,
 ];
 
@@ -25,5 +18,7 @@ export const createPokemonTypeList = (
 };
 
 export const getFilterValue = (selectedFilter: string | null): string => {
-  return selectedFilter ? selectedFilter : "all";
+  return selectedFilter !== null && isNotEmpty(selectedFilter)
+    ? selectedFilter
+    : "all";
 };

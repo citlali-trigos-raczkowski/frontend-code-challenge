@@ -54,7 +54,7 @@ export default Vue.extend({
       this.toggleFavorite(this.pokemon);
     },
     reloadHeart: function () {
-      this.heartColor = getHeartColor(this.pokemon);
+      this.heartColor = getHeartColor(this.pokemon.isFavorite);
     },
   },
   beforeMount() {

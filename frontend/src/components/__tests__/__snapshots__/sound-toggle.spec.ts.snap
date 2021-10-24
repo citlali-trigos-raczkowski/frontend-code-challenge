@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/heart-toggle.vue renders correctly 1`] = `
+<v-btn-stub
+  activeclass=""
+  alt="pokemon audio"
+  color="inherit"
+  icon="true"
+  tag="button"
+  type="button"
+>
+  <v-icon-stub>
+    mdi-volume-high
+  </v-icon-stub>
+   
+  <audio
+    id="trigger-sound"
+  >
+    <source
+      src="MockSoundSource"
+      type="audio/mp3"
+    />
+    
+    Your browser does not support the audio element.
+  
+  </audio>
+</v-btn-stub>
+`;

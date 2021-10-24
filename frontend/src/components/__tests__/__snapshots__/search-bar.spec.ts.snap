@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/search-bar.vue renders correctly 1`] = `
+<v-text-field-stub
+  backgroundcolor=""
+  clearable="true"
+  clearicon="$clear"
+  dark="true"
+  data-cy="search-bar"
+  dense="true"
+  errorcount="1"
+  errormessages=""
+  filled="true"
+  id="search-bar"
+  loaderheight="2"
+  messages=""
+  placeholder="Search for your favorite Pokemon..."
+  rounded="true"
+  rules=""
+  successmessages=""
+  type="text"
+  value=""
+/>
+`;

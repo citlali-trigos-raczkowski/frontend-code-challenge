@@ -2,7 +2,7 @@ export type GalleryPokemon = {
   name: string;
   id: string;
   image: string;
-  types: PokemonType;
+  types: PokemonType[];
   isFavorite: boolean;
 };
 

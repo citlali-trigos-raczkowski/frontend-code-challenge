@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/night-mode-toggle.vue renders correctly 1`] = `
+<div
+  id="night-mode"
+>
+  <v-layout-stub
+    tag="div"
+  >
+    <v-spacer-stub />
+     
+    <v-switch-stub
+      backgroundcolor=""
+      color="yellow"
+      errorcount="1"
+      errormessages=""
+      id="night-mode-toggle"
+      inset="true"
+      messages=""
+      ripple="true"
+      rules=""
+      successmessages=""
+      valuecomparator="[Function]"
+    />
+  </v-layout-stub>
+</div>
+`;

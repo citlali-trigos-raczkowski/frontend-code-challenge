@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component/navigation.vue renders correctly 1`] = `
+<div
+  id="navigation"
+>
+  <nav-tabs-stub
+    viewall="[Function]"
+    viewfavorites="[Function]"
+  />
+   
+  <div
+    id="side-by-side"
+  >
+    <span
+      id="nav-left"
+    >
+      <search-bar-stub
+        modeoption="dark"
+        updatesearchstring="[Function]"
+      />
+    </span>
+     
+    <span
+      id="nav-right"
+    >
+      <dropdown-filter-stub
+        changefilter="[Function]"
+        modeoption="dark"
+        pokemontypes="type1"
+      />
+       
+      <toggle-gallery-view-stub
+        galleryview="true"
+        updategalleryview="[Function]"
+      />
+    </span>
+  </div>
+</div>
+`;

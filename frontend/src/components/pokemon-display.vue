@@ -52,7 +52,7 @@ export default Vue.extend({
   },
   props: {
     pokemons: {
-      type: Object as PropType<GalleryPokemon[]>,
+      type: Array as PropType<GalleryPokemon[]>,
     },
     galleryView: {
       type: Boolean,
@@ -63,6 +63,7 @@ export default Vue.extend({
   },
   methods: {
     toggleFavorite: function (pokemon: GalleryPokemon) {
+      console.log(this.pokemons);
       this.showAlert = false;
       this.alertPokemon = pokemon.name;
       this.alertFavorited = !pokemon.isFavorite;

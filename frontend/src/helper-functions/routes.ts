@@ -1,5 +1,5 @@
 export const reRouteto = (pathName: string): void => {
-  window.location.pathname = pathName;
+  window.location.assign(pathName);
 };
 
 export const getPathname = (): string => window.location.pathname;

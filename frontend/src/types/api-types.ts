@@ -21,6 +21,7 @@ export type ToggleFavoritePokemonInput = {
   pokemonId: string;
 };
 
+// eslint-disable-next-line
 export type ApiResponse = any;
 
 export type FavoritePokemonResponse = {
@@ -37,5 +38,17 @@ type PokemonIdType = {
 
 export type ResponseStatusType = {
   favorited?: boolean;
-  success: boolean
-}
+  success: boolean;
+};
+
+export type LogStatusErrortype = {
+  functionName: string;
+  status: number;
+  statusText: string;
+  queryString: string | null;
+};
+
+export type LogGenericErrorType = {
+  errorMessage: string;
+  functionName: string;
+};

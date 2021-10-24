@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { RemoveSlashes } from "../helper-functions/format-strings";
+import { removeSlashes } from "../helper-functions/format-strings";
 import GetPokemonDetail from "../api/get-pokemon-details";
 import Evolutions from "../components/evolutions.vue";
 import FavoriteAlert from "../components/favorite-alert.vue";
@@ -80,7 +80,7 @@ export default Vue.extend({
   watch: {
     $route(to, from) {
       if (to !== from) {
-        const windowLocation = RemoveSlashes(getPathname());
+        const windowLocation = removeSlashes(getPathname());
         this.loadPokemon(windowLocation);
       }
     },
@@ -91,6 +91,7 @@ export default Vue.extend({
         GetPokemonDetail({
           pokemonName: pathname,
         }).then((response) => {
+          console.log("response: ", response);
           if (response) {
             Object.assign({}, this.pokemon, { a: 1, b: 2 });
             this.pokemon = response as DetailedPokemonType;
@@ -116,7 +117,7 @@ export default Vue.extend({
         Object.keys(this.pokemon.evolutions).length !== 0;
     },
     reloadHeart: function () {
-      this.heartColor = getHeartColor(this.pokemon);
+      this.heartColor = getHeartColor(this.pokemon.isFavorite);
     },
     togglePokemonfavorite: function () {
       this.showAlert = false;
@@ -165,7 +166,7 @@ export default Vue.extend({
     const pokemon: DetailedPokemonType = {} as DetailedPokemonType;
     return {
       loading: true,
-      windowLocation: RemoveSlashes(getPathname()),
+      windowLocation: removeSlashes(getPathname()),
       pokemon,
       heartColor: "",
       alertType: "",

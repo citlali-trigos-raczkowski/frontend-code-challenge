@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/pokemon-display.vue renders correctly 1`] = `
+<div>
+  <v-container-stub
+    class="lighten-5"
+    id="gallery-tiles"
+    tag="div"
+  >
+    <pokemon-tile-stub
+      data-cy="gallery-tiles"
+      id="pokemon-tile"
+      pokemon="[object Object]"
+      togglefavorite="[Function]"
+      triggerreload="[Function]"
+    />
+  </v-container-stub>
+   
+  <!---->
+</div>
+`;

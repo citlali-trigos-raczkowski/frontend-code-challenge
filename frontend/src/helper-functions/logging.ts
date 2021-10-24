@@ -1,27 +1,18 @@
 import { isNotEmpty } from "@/helper-functions/format-strings";
+import { LogStatusErrortype, LogGenericErrorType } from "@/types/api-types";
 
-type logStatusErrortype = {
-  functionName: string;
-  status: number;
-  statusText: string;
-  queryString: string | null;
-};
-
-type logGenericErrorType = {
-  errorMessage: string;
-  functionName: string;
-};
+const consolethis = (value: string): void => console.log(value);
 
 export const logStatusError = ({
   functionName,
   status,
   statusText,
   queryString,
-}: logStatusErrortype): void => {
+}: LogStatusErrortype): void => {
   const queryInsert = isNotEmpty(queryString)
     ? `with query string ${queryString} `
     : "";
-  console.log(
+  consolethis(
     `Response status ${status} for ${functionName} ${queryInsert}. Status text: ${statusText} `
   );
 };
@@ -29,6 +20,6 @@ export const logStatusError = ({
 export const logGenericError = ({
   errorMessage,
   functionName,
-}: logGenericErrorType): void => {
-  console.log(`Error found in ${functionName}: ${errorMessage}`);
+}: LogGenericErrorType): void => {
+  consolethis(`Error found in ${functionName}: ${errorMessage}`);
 };

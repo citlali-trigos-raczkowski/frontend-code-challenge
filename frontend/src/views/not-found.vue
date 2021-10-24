@@ -1,7 +1,7 @@
 <template>
   <div id="not-found-page">
     <router-link
-      id="not-found-link-home"
+      id="not-found-link-pikachu"
       data-cy="view-pikachu-link"
       to="/pikachu"
     >
@@ -24,14 +24,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { reRouteto } from "../helper-functions/routes";
 export default Vue.extend({
   name: "NotFound",
-  methods: {
-    routePikachu: function () {
-      reRouteto("/pikachu");
-    },
-  },
   data() {
     const PikachuImage = "/public/happy-pikachu.png";
     return {
