@@ -1,5 +1,7 @@
 ## Who's that Pokemon?
 
+Welcome to the Typescript-Vue Pokedex Frontend!
+
 Info included in this page:
 - Available Commands
 - Features
@@ -33,7 +35,6 @@ The Pokedex has three main pages, in both light and dark mode:
 - Use of typescript for type safety
 - Error logging from API calls
 - Cypress, jest configuration with coverage reports with e2e + unit testing
-- Web hooks on commit
 
 #### By Page Navigation 
 - Home page with
